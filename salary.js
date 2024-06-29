@@ -1,11 +1,13 @@
-const readline = require("readline");
+const readline = require("readline"); //its importing readline a property that can be used to receive inputs from the terminal
 
+//below untill line 7 i use the create interface to create an interface that allows users input
 const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
 reader.question("Enter your taxable Income: ", (salary) => {
+  //checking the input against conditions
   if (salary <= 24000) {
     tax = salary * 0.1;
     console.log(salary - tax);
@@ -22,6 +24,6 @@ reader.question("Enter your taxable Income: ", (salary) => {
     tax = salary * 0.35;
     console.log(salary - tax);
   }
-
+  //breaking the input interface
   reader.close();
 });

@@ -1,10 +1,13 @@
-const readline = require("readline");
+const readline = require("readline"); //its importing readline a property that can be used to receive inputs from the terminal
 
+//below untill line 7 i use the create interface to create an interface that allows users input
 const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
+
 reader.question("Enter the marks: ", (marks) => {
+  //checking the input against conditions
   if (marks > 79.9 && marks <= 100.0) {
     console.log("A");
   } else if (marks > 59.9 && marks <= 79.9) {
@@ -18,6 +21,6 @@ reader.question("Enter the marks: ", (marks) => {
   } else {
     console.log("Out of Range");
   }
+  //breaking the input interface
   reader.close();
- 
 });
