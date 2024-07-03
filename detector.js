@@ -1,21 +1,28 @@
-const readline = require("readline"); //its importing readline a property that can be used to receive inputs from the terminal
+// Import the prompt module
+const prompt = require("prompt");
 
-//below untill line 7 i use the create interface to create an interface that allows users input
-const reader = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+// Start the prompt
+prompt.start();
+
+// Prompt for the speed
+prompt.get(["inputSpeed"], (error, result) => {
+  //call speed function pass inputed value
+  calculateSpeed(result.inputSpeed);
 });
-reader.question("Enter The Speed of the car:", (speed) => {
-  //checking the input against conditions
-  if (speed > 0 && speed < 70) {
+
+function calculateSpeed(speed) {
+  //determine for 70 and below
+  if (speed > 0 && speed <= 70) {
     console.log("Ok");
-  } else if (speed > 70 && speed < 220) {
+  }
+  //determine between 70 and 320
+  else if (speed > 70 && speed < 320) {
     let difference = speed - 70;
     dPoints = (difference - (difference % 5)) / 5;
     dPoints <= 12 ? console.log(dPoints) : console.warn("License suspended");
-  } else {
+  }
+  //determine otherwise
+  else {
     console.log("invalid my guy");
   }
-  //breaking the input interface
-  reader.close();
-});
+}
