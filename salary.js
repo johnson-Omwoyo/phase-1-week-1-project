@@ -1,13 +1,28 @@
-const readline = require("readline"); //its importing readline a property that can be used to receive inputs from the terminal
+// Import the prompt module
+const prompt = require("prompt");
 
-//below untill line 7 i use the create interface to create an interface that allows users input
-const reader = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+// Start the prompt
+prompt.start();
+//object that will hold the two inputs
+let holder = {
+  properties: {
+    basicSalary: { description: "Enter the salary" },
+    benefits: { description: "Enter the benefits" },
+  },
+};
+// Prompt for both basic salary and benefits
+prompt.get(holder, (error, result) => {
+  //destructuring the object having the two values
+  const { basicSalary, benefits } = result;
+
+  //call salary function pass inputed (destructured values)values
+  calculateSalary(basicSalary, benefits);
 });
-
-reader.question("Enter your taxable Income: ", (salary) => {
-  //checking the input against conditions
+//function for the salary calculations
+let calculateSalary = (basicSalary, benefits) => {
+  let salary = parseInt(basicSalary, 10) + parseInt(benefits, 10);
+  console.log("Salary before tax:" + salary);
+  //checking the input against conditions with the output on the console
   if (salary <= 24000) {
     tax = salary * 0.1;
     console.log(salary - tax);
@@ -24,6 +39,4 @@ reader.question("Enter your taxable Income: ", (salary) => {
     tax = salary * 0.35;
     console.log(salary - tax);
   }
-  //breaking the input interface
-  reader.close();
-});
+};
