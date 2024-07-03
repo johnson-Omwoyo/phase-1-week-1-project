@@ -7,13 +7,13 @@ prompt.start();
 // Prompt for the speed
 prompt.get(["inputSpeed"], (error, result) => {
   //call speed function pass inputed value
-  calculateSpeed(result.inputSpeed);
+  console.log(calculateSpeed(result.inputSpeed));
 });
 
 function calculateSpeed(speed) {
   //determine for 70 and below
   if (speed > 0 && speed <= 70) {
-    console.log("Ok");
+    return("Ok");
   }
   //determine between 70 and 320
   else if (speed > 70 && speed < 320) {
@@ -23,6 +23,6 @@ function calculateSpeed(speed) {
   }
   //determine otherwise
   else {
-    console.log("invalid my guy");
+    return("invalid my guy");
   }
 }
