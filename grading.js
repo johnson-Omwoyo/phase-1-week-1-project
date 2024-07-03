@@ -1,12 +1,18 @@
-const readline = require("readline"); //its importing readline a property that can be used to receive inputs from the terminal
+// Import the prompt module
+const prompt = require("prompt");
 
-//below untill line 7 i use the create interface to create an interface that allows users input
-const reader = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+// Start the prompt
+prompt.start();
+
+// Prompt for the marks
+prompt.get(["inputMarks"], (error, marks) => {
+  //call grador function pass inputed marks
+  grador(marks.inputMarks);
 });
 
-reader.question("Enter the marks: ", (marks) => {
+
+//funcion that assigns grades
+let grador = (marks) => {
   //checking the input against conditions
   if (marks > 79.9 && marks <= 100.0) {
     console.log("A");
@@ -21,6 +27,4 @@ reader.question("Enter the marks: ", (marks) => {
   } else {
     console.log("Out of Range");
   }
-  //breaking the input interface
-  reader.close();
-});
+};
