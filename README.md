@@ -1,6 +1,6 @@
 # phase-1-week-1-project
 
--This is a javascript project written to solve three problems that include grading,speed detactor and salary calculating .
+This is a javascript project written to solve three problems that include grading,speed detactor and salary calculating .
 
 ## projects
 
