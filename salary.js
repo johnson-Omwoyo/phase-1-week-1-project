@@ -10,13 +10,13 @@ let holder = {
     benefits: { description: "Enter the benefits" },
   },
 };
-// Prompt for both basic salary and benefits
+// Prompt for both basic salary and benefit
 prompt.get(holder, (error, result) => {
   //destructuring the object having the two values
   const { basicSalary, benefits } = result;
 
   //call salary function pass inputed (destructured values)values
-  calculateSalary(basicSalary, benefits);
+  console.log(calculateSalary(basicSalary, benefits));
 });
 //function for the salary calculations
 let calculateSalary = (basicSalary, benefits) => {
@@ -25,18 +25,18 @@ let calculateSalary = (basicSalary, benefits) => {
   //checking the input against conditions with the output on the console
   if (salary <= 24000) {
     tax = salary * 0.1;
-    return(salary - tax);
+    return salary - tax;
   } else if (salary >= 24001 && salary <= 32333) {
     tax = salary * 0.25;
-    return(salary - tax);
+    return salary - tax;
   } else if (salary >= 32334 && salary <= 500000) {
     tax = salary * 0.3;
-    return(salary - tax);
+    return salary - tax;
   } else if (salary >= 5000001 && salary <= 800000) {
     tax = salary * 0.325;
-    return(salary - tax);
-  } else if(salary > 800000) {
+    return salary - tax;
+  } else if (salary > 800000) {
     tax = salary * 0.35;
-    return(salary - tax);
+    return salary - tax;
   }
 };
